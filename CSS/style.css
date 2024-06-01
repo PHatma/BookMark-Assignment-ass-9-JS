@@ -1,0 +1,22 @@
+
+h1,h2,h3,th ,label {
+  font-family: "Pacifico", cursive;
+  font-weight: 400;
+  font-style: normal;
+}
+.line-t {
+  border-bottom: dashed;
+}
+.line-b {
+  border-top: dashed;
+}
+.icon {
+  font-size: 25px;
+}
+.butn {
+  width: 15%;
+  padding: 10px;
+}
+.alert{
+    width: 15% !important;
+}

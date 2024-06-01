@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bookmarker</title>
+    <link rel="shortcut icon" href="assets/bookmark.webp" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Pacifico&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/all.min.css" />
+    <link rel="stylesheet" href="CSS/bootstrap.min.css" />
+    <link rel="stylesheet" href="CSS/style.css" />
+  </head>
+  <body>
+    <section>
+      <div class="container">
+        <div class="">
+          <h1 class="header pt-5  text-center fw-bold">Bookmarker</h1>
+        </div>
+        <div class=" pt-5">
+          <div class="line-t "></div>
+        </div>
+        <div class="  pt-3 d-flex justify-content-center align-items-center ">
+          <span class="icon">
+            <i class="fa-solid fa-bookmark text-success">  </i>
+          </span>
+          <h2>Bookmark your favorite sites</h2>
+          <span class="icon">
+            <i class="fa-solid fa-bookmark text-success">  </i>
+          </span>
+        </div>
+        <div class="pt-5  w-100">
+            <div class="mb-3">
+              <span class="icon"><i class="fa-solid fa-book-bookmark"></i></span>
+              <label for="webname" class="form-label">Site Name</label>
+              <input oninput="validationName()" type="text" class="form-control" id="webname">
+            </div>
+
+
+            <div class="mb-3">
+              <span class="icon"><i class="fa-solid fa-link"></i></span>
+              <label for="url" class="form-label">Site URL</label>
+              <input oninput=" validationURL() " type="url" class="form-control" id="url">
+
+            </div>
+            <div class="text-center">
+              <button onclick="addProduct() " type="button" class=" btn btn-danger butn">Submit</button>
+            </div>
+        </div>
+        <div class=" pt-4">
+          <div class="line-b "></div>
+        </div>
+      </div>
+    </section>
+<section class="pt-5">
+  <div class="container">
+      <table class="table text-center ">
+        <thead >
+          <tr>
+            <th>Index</th>
+            <th>Website Name</th>
+            <th>Visit</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+  
+        <tbody id="bdy">
+          
+        </tbody>
+      </table>
+  </div> 
+</section>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/index.js"></script>
+  </body>
+</html>
