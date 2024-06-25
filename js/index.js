@@ -2,8 +2,8 @@ var webname = document.getElementById("webname");
 var url = document.getElementById("url");
 
 var productList = [];
-if (localStorage.getItem("container") !== null) {
-  productList = JSON.parse(localStorage.getItem("container"));
+if (localStorage.getItem("box") !== null) {
+  productList = JSON.parse(localStorage.getItem("box"));
   display();
 }
 function addProduct() {
@@ -13,7 +13,7 @@ function addProduct() {
       url: url.value,
     };
     productList.push(Product);
-    localStorage.setItem("container", JSON.stringify(productList));
+    localStorage.setItem("box", JSON.stringify(productList));
     display();
     clear();
     console.log(productList);
@@ -22,11 +22,15 @@ function addProduct() {
 function clear() {
   webname.value = null;
   url.value = null;
+  webname.classList.remove('is-valid');
+  url.classList.remove('is-valid');
 }
-function redirect(){
-  location.href=`${url}`
+function redirect(i) {
+  var targetURL = productList[i].url;
+  window.location.href = targetURL;
+  console.log(targetURL);
+}
 
-}
 function display() {
   var cartona = " ";
   for (var i = 0; i < productList.length; i++) {
@@ -39,13 +43,12 @@ function display() {
 
             <td>
             
-              <button onclick=" redirect()" class="btn btn-outline-warning btn-sm"><span><i class="fa-solid fa-eye"></i></span>
+              <button onclick=" redirect(${i})" class="btn btn-outline-warning btn-sm"><span><i class="fa-solid fa-eye"></i></span>
               Visit</button>
             </td>
             <td>
 
-              <button onclick=" del(${i})" class="btn btn-outline-danger btn-sm"><span><i class="fa-solid fa-trash-can"></i></span>
-Delete</button>
+              <button onclick=" del(${i})" class="btn btn-outline-danger btn-sm"><span><i class="fa-solid fa-trash-can"></i></span>Delete</button>
 
             </td>
           
@@ -57,14 +60,12 @@ Delete</button>
 
 function del(indexItem) {
   productList.splice(indexItem, 1);
-  localStorage.setItem("container", JSON.stringify(productList));
+  localStorage.setItem("box", JSON.stringify(productList));
   display();
   console.log(productList);
 }
 
-// function openLink(url) {
-//   window.open(url, '_blank')
-// }
+
 
 function validationName() {
   var nameRegex = /^\w{3,}(\s+\w+)*$/;
